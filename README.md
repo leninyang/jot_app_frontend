@@ -1,9 +1,48 @@
-# JoT
+# JoT - Note Taking App
+Use JoT to quickly take and save notes.
 
 
 ## Technologies
 ```
-Rails Backend
-Angular Front End
+Rails backend
 authentication with Javascript Web Tokens
+Angular/Node/Express Front-end
 ```
+
+## ERD
+User
+- Has many notes
+
+Note
+- Belongs to user
+
+## SCHEMA
+```
+User
+  t.string "username"
+  t.string "password"
+  t.string "name"
+```
+```
+Notes
+  t.string "title"
+  t.text "content"
+  t.boolean "starred"
+```
+## User Stories
+**User should be able to:**
+
+- Create, update, delete an account.
+- Create, update, delete a note.
+- See a list of all the notes.
+- Search through his/her notes.
+- Star/Favorite a note
+- See a list of all the starred/favorited notes.
+- Archive a note
+- See a list of all archived notes.
+
+**Stretch|:**
+
+- Ability to add photos in your notes
+- Ability to format notes (i.e. bold, italic, bullet list)
+- Share notes with other users (Collaboration)
