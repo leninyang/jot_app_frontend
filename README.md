@@ -4,9 +4,10 @@ Use JoT to quickly take and save notes.
 
 ## Technologies
 ```
-Rails backend
-authentication with Javascript Web Tokens
-Angular/Node/Express Front-end
+-Rails backend
+-Postgresql DB
+-Authentication with Javascript Web Tokens
+-AngularJS | Node | Express Front-end
 ```
 
 ## ERD
@@ -41,7 +42,7 @@ Notes
 - Archive a note
 - See a list of all archived notes.
 
-**Stretch|:**
+**Stretch:**
 
 - Ability to add photos in your notes
 - Ability to format notes (i.e. bold, italic, bullet list)
