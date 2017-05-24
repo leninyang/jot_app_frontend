@@ -4,10 +4,10 @@ Use JoT to quickly take and save notes.
 
 ## Technologies
 ```
--Rails backend
--Postgresql DB
--Authentication with Javascript Web Tokens
--AngularJS | Node | Express Front-end
+- Rails backend
+- Postgresql DB
+- Authentication with Javascript Web Tokens
+- AngularJS | Node | Express Front-end
 ```
 
 ## ERD
@@ -29,6 +29,7 @@ Notes
   t.string "title"
   t.text "content"
   t.boolean "starred"
+  t.boolean "archived"
 ```
 ## User Stories
 **User should be able to:**
