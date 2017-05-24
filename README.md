@@ -34,7 +34,7 @@ Notes
 ## User Stories
 **User should be able to:**
 
-- Create, update, delete an account.
+- Create an account.
 - Create, update, delete a note.
 - See a list of all the notes.
 - Search through his/her notes.
