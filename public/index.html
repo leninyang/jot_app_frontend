@@ -10,5 +10,11 @@
   </head>
   <body ng-controller="mainController as ctrl">
     {{ctrl.message}}
+    <ul>
+      <li ng-repeat="note in notes">
+        {{note.title}}
+        {{note.content}}
+      </li>
+    </ul>
   </body>
 </html>

@@ -3,7 +3,7 @@ console.log('JoT app is connected.');
 var app = angular.module('jot-app', []);
 
 app.controller('mainController', ['$http', '$scope', function($http, $scope) {
-  this.title = "JoT"
+  this.message = "JoT";
   // this is the url for our backend, inject scope to your controllers and you should be able to use this variable anywhere
   $scope.url = 'http://localhost:3000/';
 
@@ -21,18 +21,23 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
       method: 'GET',
       url: $scope.url + 'notes',
     }).then(function(response) {
-      console.log('all notes'response);
+      console.log('all notes', response);
       $scope.notes = response.data;
-      //console.log(this.recipes);
+      console.log($scope.notes);
     }.bind(this));
   };
   this.getNotes();
   //==================================
   //        Notes Show
   //==================================
-  this.getOneRecipe = function(id) {
-
-  }
+  // this.getOneRecipe = function(id) {
+  //   $http({
+  //     method: 'GET',
+  //     url: $scope.url + 'notes/' + id,
+  //   })then(function(response) {
+  //     console.log(response);
+  //   })
+  // };
 
 
 
