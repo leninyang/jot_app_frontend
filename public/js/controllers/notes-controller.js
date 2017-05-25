@@ -68,7 +68,22 @@ function($http, $scope) {
     }.bind(this));
   };
 
+  //==================================
+  //        Notes Delete
+  //==================================
+  this.deleteNote = function(note){
+    $http({
+     method: 'DELETE',
+     url: $scope.url + 'notes/' + note.id,
+     headers: {
+         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+     }
+    }).then(function(response){
+     console.log("Deleted: ", response);
+     this.getNotes();
+    }.bind(this));
 
+  };
 
 
 }]); //End notesController

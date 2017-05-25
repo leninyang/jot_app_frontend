@@ -1,8 +1,10 @@
 <!-- SHOW ALL NOTES -->
 <ul>
   <li ng-repeat="note in notesCtrl.allNotes">
-    {{note.title}}
-    {{note.content}}
+    Title: {{note.title}}
+    Content: {{note.content}}
+    <button ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button>
+    <!-- NOTES UPDATE FORM -->
     <form ng-submit="notesCtrl.updateNote(note)">
       Title: <input type="text" ng-model="note.title">
       Content: <input type="text" ng-model="note.content">
