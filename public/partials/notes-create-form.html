@@ -1,0 +1,6 @@
+<h4>Create a Note!</h4>
+<form ng-submit="notesCtrl.createNote()">
+  <input type="text" ng-model="notesCtrl.formData.title" placeholder="title"><br>
+  <input type="textarea" ng-model="notesCtrl.formData.content" placeholder="content"><br>
+  <input type="submit" value="add">
+</form>

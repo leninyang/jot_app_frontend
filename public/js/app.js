@@ -7,5 +7,8 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
   // This is the url for our backend, inject scope to your controllers and you should be able to use this variable anywhere
   $scope.url = 'http://localhost:3000/';
 
+  //Used to hold the logged in user.
+  $scope.currentUser = {};
+
 
 }]); //End mainController

@@ -15,7 +15,7 @@ function($http, $scope) {
       method: 'GET',
       url: $scope.url + 'notes',
     }).then(function(response) {
-      console.log('all notes', response);
+      // console.log('all notes', response);
       this.allNotes = response.data;
     }.bind(this));
   };
@@ -35,11 +35,15 @@ function($http, $scope) {
         note: {
           title: this.formData.title,
           content: this.formData.content,
+          starred: this.formData.starred = false,
+          archived: this.formData.archived = false,
+          user_id: $scope.currentUser.id
         }
       }
     }).then(function(response) {
       console.log('New note: ', response);
       this.formData = {};
+      this.getNotes();
     }.bind(this));
   };
 

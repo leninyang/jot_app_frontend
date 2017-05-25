@@ -1,9 +1,7 @@
 angular.module('jot-app').controller('loginController', ['$http', '$scope',
 function($http, $scope) {
   this.message = "JoT";
-  this.user = {};
-
-
+  $scope.currentUser = {};
 
   // =================================
   //            LOGIN
@@ -21,8 +19,9 @@ function($http, $scope) {
       },
     }).then(function(response){
       console.log('response', response);
-      this.user = response.data.user;
-      // Emptying the form
+      $scope.currentUser = response.data.user;
+      console.log($scope.user);
+      // Empties the form
       loginData.username = '';
       loginData.password = '';
       localStorage.setItem('token', JSON.stringify(response.data.token));
@@ -35,8 +34,8 @@ function($http, $scope) {
   this.logout = function() {
     localStorage.clear('token');
     location.reload();
+  },
     console.log('logout');
-  }
 
   // =================================
   //            SIGNUP
@@ -48,12 +47,12 @@ function($http, $scope) {
     data: {
       user: {
         username: signUpData.username,
-        password: signUpData.password
+        password: signUpData.password,
       }
     }
   }).then(function(response){
     console.log('Sign up!', response);
-    // Emptying the form
+    // Empties the form
     signUpData.username = '';
     signUpData.password = '';
   });
