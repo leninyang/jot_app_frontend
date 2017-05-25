@@ -47,6 +47,28 @@ function($http, $scope) {
     }.bind(this));
   };
 
+  //==================================
+  //        Notes Update
+  //==================================
+  this.updateNote = function(note) {
+    $http({
+      method: 'PATCH',
+      url: $scope.url + 'notes/' + note.id,
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      data: {
+        note: {
+          title: note.title,
+          content: note.content
+        }
+      }
+    }).then(function(response) {
+      console.log('Edited note: ', note);
+    }.bind(this));
+  };
+
+
 
 
 }]); //End notesController

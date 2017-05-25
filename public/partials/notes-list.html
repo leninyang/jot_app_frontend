@@ -3,5 +3,10 @@
   <li ng-repeat="note in notesCtrl.allNotes">
     {{note.title}}
     {{note.content}}
+    <form ng-submit="notesCtrl.updateNote(note)">
+      Title: <input type="text" ng-model="note.title">
+      Content: <input type="text" ng-model="note.content">
+      <input type="submit" value="update">
+    </form>
   </li>
 </ul>
