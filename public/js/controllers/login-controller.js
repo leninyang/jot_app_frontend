@@ -9,19 +9,22 @@ function($http, $scope) {
   //            LOGIN
   // =================================
   // this function will make a login request when called
-  this.login = function(userPass) {
+  this.login = function(loginData) {
     $http({
       method: 'POST',
       url: $scope.url + 'users/login',
       data: {
         user: {
-          username: userPass.username,
-          password: userPass.password
+          username: loginData.username,
+          password: loginData.password
         }
       },
     }).then(function(response){
       console.log('response', response);
       this.user = response.data.user;
+      // Emptying the form
+      loginData.username = '';
+      loginData.password = '';
       localStorage.setItem('token', JSON.stringify(response.data.token));
     }.bind(this));
   };
@@ -38,20 +41,21 @@ function($http, $scope) {
   // =================================
   //            SIGNUP
   // =================================
-  this.signup = function(signupData) {
+  this.signUp = function(signUpData) {
   $http({
     method: 'POST',
     url: $scope.url + 'users',
     data: {
       user: {
-        username: signupData.username,
-        password: signupData.password
+        username: signUpData.username,
+        password: signUpData.password
       }
     }
   }).then(function(response){
-    console.log('Signing up!', response);
-    signupData.username = '';
-    signupData.password = '';
+    console.log('Sign up!', response);
+    // Emptying the form
+    signUpData.username = '';
+    signUpData.password = '';
   });
 };
 
