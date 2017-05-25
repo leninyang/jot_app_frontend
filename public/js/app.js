@@ -13,6 +13,25 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
   // scope variable holding notes
   $scope.notes = [];
 
+  // scope variable holding the forms data
+  this.formData = {};
+
+  //========================================
+  //            USER LOGIN
+  //========================================
+  this.login = function(userPass) {
+    console.log(userPass);
+    
+    $http({
+      method: 'POST',
+      url: this.url + '/users/login',
+      data: { user: { username: userPass.username, password: userPass.password }},
+    }).then(function(response) {
+      console.log(response);
+    });
+  },
+
+
   //==================================
   //        Notes Index
   //==================================
@@ -23,21 +42,31 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
     }).then(function(response) {
       console.log('all notes', response);
       $scope.notes = response.data;
-      console.log($scope.notes);
+      // console.log($scope.notes);
     }.bind(this));
   };
   this.getNotes();
   //==================================
-  //        Notes Show
+  //        Notes Create
   //==================================
-  // this.getOneRecipe = function(id) {
-  //   $http({
-  //     method: 'GET',
-  //     url: $scope.url + 'notes/' + id,
-  //   })then(function(response) {
-  //     console.log(response);
-  //   })
-  // };
+  this.createNote = function() {
+    $http({
+      method: 'POST',
+      url: $scope.url + 'notes',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      data: {
+        note: {
+          title: this.formData.title,
+          content: this.formData.content,
+        }
+      }
+    }).then(function(response) {
+      console.log('New note: ', response);
+      this.formData = {};
+    }.bind(this));
+  };
 
 
 
