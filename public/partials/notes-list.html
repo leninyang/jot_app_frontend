@@ -1,6 +1,6 @@
 <!-- SHOW ALL NOTES -->
 <ul>
-  <li ng-repeat="note in notesCtrl.allNotes">
+  <li ng-repeat="note in notesCtrl.displayedNotes">
     Title: {{note.title}}
     Content: {{note.content}}
     <button ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button>
@@ -12,5 +12,10 @@
     </form>
     <!-- NOTES STARRED BUTTON -->
     <button ng-click="notesCtrl.starNote(note)" type="button">Star</button>
+    <!-- NOTES ARCHIVED BUTTON -->
+    <button ng-click="notesCtrl.archiveNote(note)" type="button">Archive</button>
   </li>
 </ul>
+
+
+<button ng-click="notesCtrl.showArchivedNotes()">Show All Archived</button>

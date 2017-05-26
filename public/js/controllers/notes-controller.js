@@ -1,9 +1,11 @@
 angular.module('jot-app').controller('notesController', ['$http', '$scope',
 function($http, $scope) {
 
-  var self = this;
   // scope variable holding notes
-  this.allNotes = [];
+
+  this.notesArray = [];
+  this.filteredArray = [];
+  this.displayedNotes = [];
 
   // scope variable holding the forms data
   this.formData = {};
@@ -18,10 +20,28 @@ function($http, $scope) {
       url: $scope.url + 'notes',
     }).then(function(response) {
       // console.log('all notes', response);
-      this.allNotes = response.data;
+      this.notesArray = response.data
+      // console.log('notes array: ', this.notesArray);
+      // SHOWS ONLY THE NOTES WITH VALUE OF ARCHIVED FALSE
+      this.filteredArray = this.notesArray.filter(function(note) {
+        return note.archived === false;
+      });
+      this.displayedNotes = this.filteredArray;
+      // SHOWS ALL NOTES
+      // this.allNotes = response.data;
     }.bind(this));
   };
   this.getNotes();
+
+  //==================================
+  //        Notes Show Archived
+  //==================================
+  this.showArchivedNotes = function() {
+    console.log(this.notesArray);
+    this.displayedNotes = this.notesArray.filter(function(note) {
+      return note.archived === true;
+    });
+  }
 
   //==================================
   //        Notes Create
@@ -111,7 +131,38 @@ function($http, $scope) {
     }).then(function(response) {
       // console.log('Edited note: ', note);
       console.log('starred status: ', note.starred);
+      this.getNotes();
     }.bind(this));
   }
+
+  //==================================
+  //        Archived
+  //==================================
+  this.archiveNote = function(note) {
+    // console.log('what is being passed', note);
+    // When clicked, checks for value and assigns the opposite
+    if (note.archived === false) {
+      note.archived = true
+    } else if (note.archived === true) {
+      note.archived = false
+    }
+    $http({
+      method: 'PATCH',
+      url: $scope.url + 'notes/' + note.id,
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      data: {
+        note: {
+          archived: note.archived
+        }
+      }
+    }).then(function(response) {
+      console.log('Edited note: ', note);
+      console.log('archived status: ', note.archived);
+      this.getNotes();
+    }.bind(this));
+  }
+
 
 }]); //End notesController
