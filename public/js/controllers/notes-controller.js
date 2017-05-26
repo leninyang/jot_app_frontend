@@ -1,11 +1,13 @@
 angular.module('jot-app').controller('notesController', ['$http', '$scope',
 function($http, $scope) {
 
+  var self = this;
   // scope variable holding notes
   this.allNotes = [];
 
   // scope variable holding the forms data
   this.formData = {};
+
 
   //==================================
   //        Notes Index
@@ -65,6 +67,7 @@ function($http, $scope) {
       }
     }).then(function(response) {
       console.log('Edited note: ', note);
+
     }.bind(this));
   };
 
@@ -82,8 +85,33 @@ function($http, $scope) {
      console.log("Deleted: ", response);
      this.getNotes();
     }.bind(this));
-
   };
+  //==================================
+  //        Starred
+  //==================================
+  this.starNote = function(note) {
+    // console.log('what is being passed', note);
+    if (note.starred === false) {
+      note.starred = true
+    } else if (note.starred === true) {
+      note.starred = false
+    }
 
+    $http({
+      method: 'PATCH',
+      url: $scope.url + 'notes/' + note.id,
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      data: {
+        note: {
+          starred: note.starred
+        }
+      }
+    }).then(function(response) {
+      // console.log('Edited note: ', note);
+      console.log('starred status: ', note.starred);
+    }.bind(this));
+  }
 
 }]); //End notesController
