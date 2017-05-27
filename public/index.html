@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html ng-app="jot-app">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <!-- ANGULAR -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-    <!-- MAIN APP.JS -->
-    <script src="js/app.js" charset="utf-8"></script>
-    <!-- DIRECTIVES -->
-    <script src="js/directives/login-form.js"></script>
-    <script src="js/directives/sign-up-form.js"></script>
-    <script src="js/directives/nav-bar.js"></script>
-    <script src="js/directives/notes-list.js"></script>
-    <script src="js/directives/notes-create-form.js"></script>
-    <!-- CONTROLLERS -->
-    <script src="js/controllers/login-controller.js"></script>
-    <script src="js/controllers/notes-controller.js"></script>
-    <!-- MATERIALIZE -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
-  </head>
-  <body ng-controller="mainController as ctrl">
-    {{ctrl.message}}
-    <header>
-      <!-- NAV BAR -->
-      <nav-bar></nav-bar>
-    </header>
-    <!-- LOGIN FORM -->
-    <login-form></login-form>
-    <!-- SIGN UP FORM -->
-    <sign-up-form></sign-up-form>
-    <!-- SHOW ALL NOTES -->
-    <notes-list></notes-list>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- JQUERY -->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <!-- ANGULAR -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <!-- MAIN APP.JS -->
+  <script src="js/app.js" charset="utf-8"></script>
+  <!-- DIRECTIVES -->
+  <script src="js/directives/login-form.js"></script>
+  <script src="js/directives/sign-up-form.js"></script>
+  <script src="js/directives/nav-bar.js"></script>
+  <script src="js/directives/notes-list.js"></script>
+  <script src="js/directives/notes-create-form.js"></script>
+  <!-- CONTROLLERS -->
+  <script src="js/controllers/login-controller.js"></script>
+  <script src="js/controllers/notes-controller.js"></script>
+  <!-- MATERIALIZE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body ng-controller="mainController as ctrl">
+  <!-- {{ctrl.message}} -->
+  <header>
+    <!-- NAV BAR -->
+    <nav-bar></nav-bar>
+  </header>
+  <!-- LOGIN FORM -->
+  <login-form></login-form>
+  <!-- SIGN UP FORM -->
+  <sign-up-form></sign-up-form>
+  <!-- SHOW ALL NOTES -->
+  <notes-list ng-show="loggedInUser"></notes-list>
 
-    <!-- CREATE FORM -->
-    <notes-create-form></notes-create-form>
-  </body>
+  <!-- CREATE FORM -->
+  <notes-create-form ng-show="loggedInUser"></notes-create-form>
+</body>
 </html>
