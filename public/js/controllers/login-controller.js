@@ -2,37 +2,48 @@ angular.module('jot-app').controller('loginController', ['$http', '$scope',
 function($http, $scope) {
 
 
-// -------------------
-//  GRABING ELEMENTS
-// -------------------
-  // Grabbing About the Game button
-  var $openBtn = $('#openModal');
-  // Grabbing modal element
-  var $modal = $('#modal');
+  // -------------------
+  //  GRABING ELEMENTS
+  // -------------------
+  // Grabbing Login button
+  var $openLoginBtn = $('#openLoginModal');
+  var $openSignUpModal = $('#openSignUpModal');
+
+  // Grabbing login modal element
+  var $loginModal = $('#loginModal');
+  var $signUpModal = $('#signUpModal');
   // Grabbing close button
-  var $closeBtn = $('#close');
+  var $closeLoginBtn = $('#closeLogin');
+  var $closeSignUpBtn = $('#closeSignUp');
 
-
-// -------------------
-//   EVENT HANDLERS
-// -------------------
+  // -------------------
+  //   EVENT HANDLERS
+  // -------------------
   // Event handler to open the modal
-  var openModal = function(){
-    $modal.css('display', 'block');
+  var openLoginModal = function(){
+    $loginModal.css('display', 'block');
+  }
+  var openSignUpModal = function(){
+    $signUpModal.css('display', 'block');
   }
   // Event handler to close the modal
-  var closeModal = function(){
-    $modal.css('display', 'none');
+  var closeLoginModal = function(){
+    $loginModal.css('display', 'none');
+  }
+  var closeSignUpModal = function(){
+    $signUpModal.css('display', 'none');
   }
 
-
-// -------------------
-//   EVENT LISTENERS
-// -------------------
-  //Add event listener to About the Game button
-  $openBtn.on('click', openModal);
+  // -------------------
+  //   EVENT LISTENERS
+  // -------------------
+  //Add event listener to Login Button
+  $openLoginBtn.on('click', openLoginModal);
+  //Add event listener to Sign Up Button
+  $openSignUpModal.on('click', openSignUpModal);
   //Add event listener to Close button
-  $closeBtn.on('click', closeModal);
+  $closeLoginBtn.on('click', closeLoginModal);
+  $closeSignUpBtn.on('click', closeSignUpModal);
 
 
 
@@ -81,28 +92,28 @@ function($http, $scope) {
     localStorage.clear('token');
     location.reload();
   },
-    console.log('logout');
+  console.log('logout');
 
   // =================================
   //            SIGNUP
   // =================================
   this.signUp = function(signUpData) {
-  $http({
-    method: 'POST',
-    url: $scope.url + 'users',
-    data: {
-      user: {
-        username: signUpData.username,
-        password: signUpData.password,
+    $http({
+      method: 'POST',
+      url: $scope.url + 'users',
+      data: {
+        user: {
+          username: signUpData.username,
+          password: signUpData.password,
+        }
       }
-    }
-  }).then(function(response){
-    console.log('Sign up!', response);
-    // Empties the form
-    signUpData.username = '';
-    signUpData.password = '';
-  });
-};
+    }).then(function(response){
+      console.log('Sign up!', response);
+      // Empties the form
+      signUpData.username = '';
+      signUpData.password = '';
+    });
+  };
 
 
 
