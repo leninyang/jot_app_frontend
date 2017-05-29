@@ -1,6 +1,23 @@
-<h4>Create a Note!</h4>
+<!-- <h4>Create a Note!</h4>
 <form ng-submit="notesCtrl.createNote()">
   <input type="text" ng-model="notesCtrl.formData.title" placeholder="title"><br>
   <input type="textarea" ng-model="notesCtrl.formData.content" placeholder="content"><br>
   <input type="submit" value="add">
-</form>
+</form> -->
+
+
+<!-- CREATE FORM -->
+  <div id="createModal">
+    <div id="modalTextBox" class="container center-align">
+      <h4>Add New Note</h4>
+      <form ng-submit="notesCtrl.createNote()">
+        <div class="input-field">
+        <input type="text" ng-model="notesCtrl.formData.title" placeholder="Title"/>
+        </div>
+        <input type="password" ng-model="notesCtrl.formData.content" placeholder="Content"/>
+        <input type="submit" value="Add"/>
+      </form>
+      <p>Logged in username: {{ currentUser.username }} </p>
+      <a id="closeCreate">close</a>
+    </div>
+  </div>

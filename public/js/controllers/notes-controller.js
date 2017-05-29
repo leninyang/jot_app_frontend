@@ -4,30 +4,30 @@ function($http, $scope) {
   // -------------------
   //  GRABING ELEMENTS
   // -------------------
- var $openEditBtn = $('#openEditModal');
+ var $openCreateBtn = $('#openCreateModal');
  // Grabbing login modal element
- var $editModal = $('#editModal');
+ var $createModal = $('#createModal');
  // Grabbing close button
- var $closeEditBtn = $('#closeEdit');
+ var $closeCreateBtn = $('#closeCreate');
 
 
  // -------------------
  //   EVENT HANDLERS
  // -------------------
  // Event handler to open the modal
- var openEditModal = function(){
-   $editModal.css('display', 'block');
+ var openCreateModal = function(){
+   $createModal.css('display', 'block');
  }
- var closeEditModal = function(){
-   $editModal.css('display', 'none');
+ var closeCreateModal = function(){
+   $createModal.css('display', 'none');
  }
  // -------------------
  //   EVENT LISTENERS
  // -------------------
  //Add event listener to Login Button
- $openEditBtn.on('click', openEditModal);
+ $openCreateBtn.on('click', openCreateModal);
  //Add event listener to Close button
- $closeEditBtn.on('click', closeEditModal);
+ $closeCreateBtn.on('click', closeCreateModal);
 
 
   // scope variable holding notes

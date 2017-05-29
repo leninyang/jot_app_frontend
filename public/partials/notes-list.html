@@ -1,3 +1,4 @@
+<!-- SEARCH BAR | ADD | ARCHIVED | STARRED -->
 <div class="second-nav">
   <form>
     <div class="input-field">
@@ -7,6 +8,7 @@
     </div>
   </form>
 
+  <button class="btn" id="openCreateModal" ng-click="notesCtrl.createNote()">Add Note</button>
   <button class="btn" ng-click="notesCtrl.showArchivedNotes()">Archived</button>
   <button class="btn" ng-click="notesCtrl.showStarredNotes()">Starred</button>
 </div>
