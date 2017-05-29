@@ -6,32 +6,64 @@ function($http, $scope) {
   this.notesArray = [];
   this.filteredArray = [];
   this.displayedNotes = [];
+  this.singleNote = [];
+  this.filteredArrayByID = [];
 
   // scope variable holding the forms data
   this.formData = {};
 
 
   //==================================
-  //        Notes Index
+  //        Notes Index Route
   //==================================
+
+  // function getNotes() {
   this.getNotes = function() {
     $http({
       method: 'GET',
       url: $scope.url + 'notes',
     }).then(function(response) {
-      // console.log('all notes', response);
+      console.log('all notes', response.data);
       this.notesArray = response.data
       // console.log('notes array: ', this.notesArray);
       // SHOWS ONLY THE NOTES WITH VALUE OF ARCHIVED FALSE
       this.filteredArray = this.notesArray.filter(function(note) {
         return note.archived === false;
       });
+
+      // this.filteredArrayByID = this.notesArray.filter(function(note) {
+      //   return note.id === $scope.currentUserID;
+      // });
+      // console.log('filteredArrayByID', this.filteredArrayByID);
+      //
       this.displayedNotes = this.filteredArray;
       // SHOWS ALL NOTES
       // this.allNotes = response.data;
     }.bind(this));
   };
   this.getNotes();
+  // this.getNotes = getNotes;
+  // getNotes();
+
+  // $scope.$on('newLogin', function() {
+  //   getNotes()
+  // })
+
+  //==================================
+  //        Show Individual Notes
+  //==================================
+
+    this.showOneNote = function(noteID) {
+      $http({
+        method: 'GET',
+        url: $scope.url + 'notes/' + noteID,
+      }).then(function(response){
+        console.log('individual note', response.data);
+        this.singleNote = response.data;
+      }.bind(this));
+    };
+
+
 
   //==================================
   //        Notes Show Archived
@@ -40,6 +72,16 @@ function($http, $scope) {
     console.log(this.notesArray);
     this.displayedNotes = this.notesArray.filter(function(note) {
       return note.archived === true;
+    });
+  }
+
+  //==================================
+  //        Notes Show Starred
+  //==================================
+  this.showStarredNotes = function() {
+    console.log(this.notesArray);
+    this.displayedNotes = this.notesArray.filter(function(note) {
+      return note.starred === true;
     });
   }
 
@@ -106,6 +148,7 @@ function($http, $scope) {
      this.getNotes();
     }.bind(this));
   };
+
   //==================================
   //        Starred
   //==================================
@@ -163,6 +206,8 @@ function($http, $scope) {
       this.getNotes();
     }.bind(this));
   }
+
+
 
 
 }]); //End notesController

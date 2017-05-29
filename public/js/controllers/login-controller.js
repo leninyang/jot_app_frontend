@@ -49,7 +49,7 @@ function($http, $scope) {
 
 
   this.message = "JoT";
-  $scope.currentUser = {};
+  // $scope.currentUser = {};
 
   // =================================
   //            LOGIN
@@ -68,22 +68,24 @@ function($http, $scope) {
     }).then(function(response){
       console.log('response', response);
       $scope.currentUser = response.data.user;
-      console.log($scope.currentUser);
+      $scope.$emit('userLogin')
+      // console.log("The current user is: ", $scope.currentUser);
       // Empties the form
-      // loginData.username = '';
-      // loginData.password = '';
+      loginData.username = '';
+      loginData.password = '';
       // localStorage.setItem('token', JSON.stringify(response.data.token));
-      if (response.data.status === 200) {
+      // if (response.data.status === 200) {
         // saves webtoken to local storage
         localStorage.setItem('token', JSON.stringify(response.data.token))
         localStorage.setItem('username', JSON.stringify(response.data.user.username));
         localStorage.setItem('user_id', JSON.stringify(response.data.user.id));
         $scope.userIsLoggedIn();
-      } else {
-        this.msg = 'Sorry, the username and password you provided don\'t match our records.';
-      }
+      // } else {
+      //   this.msg = 'Sorry, the username and password you provided don\'t match our records.';
+      // }
     }.bind(this));
   };
+
 
   // =================================
   //            LOGOUT
@@ -112,7 +114,7 @@ function($http, $scope) {
       // Empties the form
       signUpData.username = '';
       signUpData.password = '';
-    });
+    }.bind(this));
   };
 
 

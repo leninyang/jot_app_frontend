@@ -16,6 +16,10 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
   // currentUser
   $scope.loggedInUser = false;
 
+  $scope.$on('userLogin', function() {
+    $scope.$broadcast('newLogin')
+  });
+
   // this is a function that checks if a user is logged in, inject scope to your
   // controllers and you should be able to use this variable anywhere
   $scope.userIsLoggedIn = function() {

@@ -1,21 +1,40 @@
 <!-- SHOW ALL NOTES -->
-<ul>
-  <li ng-repeat="note in notesCtrl.displayedNotes">
+<!-- <ul>
+  <li ng-repeat="note in notesCtrl.notesArray">
     Title: {{note.title}}
     Content: {{note.content}}
-    <button ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button>
+    <button ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button> -->
     <!-- NOTES UPDATE FORM -->
-    <form ng-submit="notesCtrl.updateNote(note)">
+    <!-- <form ng-submit="notesCtrl.updateNote(note)">
       Title: <input type="text" ng-model="note.title">
       Content: <input type="text" ng-model="note.content">
       <input type="submit" value="update">
-    </form>
+    </form> -->
     <!-- NOTES STARRED BUTTON -->
-    <button ng-click="notesCtrl.starNote(note)" type="button">Star</button>
+    <!-- <button ng-click="notesCtrl.starNote(note)" type="button">Star</button> -->
     <!-- NOTES ARCHIVED BUTTON -->
-    <button ng-click="notesCtrl.archiveNote(note)" type="button">Archive</button>
-  </li>
-</ul>
+    <!-- <button ng-click="notesCtrl.archiveNote(note)" type="button">Archive</button> -->
+  <!-- </li>
+</ul> -->
 
-
-<button ng-click="notesCtrl.showArchivedNotes()">Show All Archived</button>
+<div class="row">
+  <div ng-repeat="note in notesCtrl.displayedNotes" class="col s12 m3">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">{{note.title}}</span>
+        <p>{{note.content}}</p>
+      </div>
+      <div class="card-action icon-buttons">
+        <!-- NOTES DELETE BUTTON -->
+        <!-- <button class="btn"ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button> -->
+        <i ng-click="notesCtrl.deleteNote(note)" class="material-icons icon">delete</i>
+        <!-- NOTES STARRED BUTTON -->
+        <!-- <button ng-click="notesCtrl.starNote(note)" type="button">Star</button> -->
+        <i ng-click="notesCtrl.starNote(note)" class="material-icons icon">stars</i>
+        <!-- NOTES ARCHIVED BUTTON -->
+        <!-- <button ng-click="notesCtrl.archiveNote(note)" type="button">Archive</button> -->
+        <i ng-click="notesCtrl.archiveNote(note)" class="material-icons icon">done</i>
+      </div>
+    </div>
+  </div>
+</div>
