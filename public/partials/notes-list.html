@@ -1,30 +1,25 @@
-<!-- SHOW ALL NOTES -->
-<!-- <ul>
-  <li ng-repeat="note in notesCtrl.notesArray">
-    Title: {{note.title}}
-    Content: {{note.content}}
-    <button ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button> -->
-    <!-- NOTES UPDATE FORM -->
-    <!-- <form ng-submit="notesCtrl.updateNote(note)">
-      Title: <input type="text" ng-model="note.title">
-      Content: <input type="text" ng-model="note.content">
-      <input type="submit" value="update">
-    </form> -->
-    <!-- NOTES STARRED BUTTON -->
-    <!-- <button ng-click="notesCtrl.starNote(note)" type="button">Star</button> -->
-    <!-- NOTES ARCHIVED BUTTON -->
-    <!-- <button ng-click="notesCtrl.archiveNote(note)" type="button">Archive</button> -->
-  <!-- </li>
-</ul> -->
+<div class="second-nav">
+  <form>
+    <div class="input-field">
+      <input id="search" type="search" ng-model="searchBox"required>
+      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+      <i class="material-icons">close</i>
+    </div>
+  </form>
+
+  <button class="btn" ng-click="notesCtrl.showArchivedNotes()">Archived</button>
+  <button class="btn" ng-click="notesCtrl.showStarredNotes()">Starred</button>
+</div>
 
 <div class="row">
-  <div ng-repeat="note in notesCtrl.displayedNotes" class="col s12 m3">
+  <div ng-repeat="note in notesCtrl.displayedNotes | filter:searchBox" class="col s12 m3">
     <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
+      <div class="card-content white-text activator notes">
         <span class="card-title">{{note.title}}</span>
         <p>{{note.content}}</p>
       </div>
       <div class="card-action icon-buttons">
+        <span class="activator"><i class="material-icons icon">mode_edit</i></span>
         <!-- NOTES DELETE BUTTON -->
         <!-- <button class="btn"ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button> -->
         <i ng-click="notesCtrl.deleteNote(note)" class="material-icons icon">delete</i>
@@ -34,6 +29,15 @@
         <!-- NOTES ARCHIVED BUTTON -->
         <!-- <button ng-click="notesCtrl.archiveNote(note)" type="button">Archive</button> -->
         <i ng-click="notesCtrl.archiveNote(note)" class="material-icons icon">done</i>
+      </div>
+      <div class="card-reveal grey lighten-4">
+        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+        <!-- NOTES EDIT FORM -->
+        <form ng-submit="notesCtrl.updateNote(note)">
+          <input type="text" ng-model="note.title">
+          <input type="text" ng-model="note.content">
+          <input class="btn right" type="submit" value="update">
+        </form>
       </div>
     </div>
   </div>

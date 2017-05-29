@@ -1,6 +1,35 @@
 angular.module('jot-app').controller('notesController', ['$http', '$scope',
 function($http, $scope) {
 
+  // -------------------
+  //  GRABING ELEMENTS
+  // -------------------
+ var $openEditBtn = $('#openEditModal');
+ // Grabbing login modal element
+ var $editModal = $('#editModal');
+ // Grabbing close button
+ var $closeEditBtn = $('#closeEdit');
+
+
+ // -------------------
+ //   EVENT HANDLERS
+ // -------------------
+ // Event handler to open the modal
+ var openEditModal = function(){
+   $editModal.css('display', 'block');
+ }
+ var closeEditModal = function(){
+   $editModal.css('display', 'none');
+ }
+ // -------------------
+ //   EVENT LISTENERS
+ // -------------------
+ //Add event listener to Login Button
+ $openEditBtn.on('click', openEditModal);
+ //Add event listener to Close button
+ $closeEditBtn.on('click', closeEditModal);
+
+
   // scope variable holding notes
 
   this.notesArray = [];
@@ -11,6 +40,7 @@ function($http, $scope) {
 
   // scope variable holding the forms data
   this.formData = {};
+
 
 
   //==================================
@@ -206,6 +236,8 @@ function($http, $scope) {
       this.getNotes();
     }.bind(this));
   }
+
+
 
 
 

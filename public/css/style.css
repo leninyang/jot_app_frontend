@@ -21,6 +21,18 @@
   display: none;
 }
 
+#editModal {
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: auto;
+  display: none;
+}
+
 #modalTextBox {
   background-color: white;
   height: 350px;
@@ -49,4 +61,8 @@
 
 .icon {
   cursor: pointer;
+}
+
+.notes {
+  min-height: 170px;
 }

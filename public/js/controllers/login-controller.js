@@ -48,6 +48,7 @@ function($http, $scope) {
 
 
 
+
   this.message = "JoT";
   // $scope.currentUser = {};
 
