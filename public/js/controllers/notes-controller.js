@@ -33,7 +33,7 @@ function($http, $scope) {
   // scope variable holding notes
 
   this.notesArray = [];
-  this.filteredArray = [];
+  this.arrayArchivedNotes = [];
   this.displayedNotes = [];
   this.singleNote = [];
   this.filteredArrayByID = [];
@@ -41,6 +41,7 @@ function($http, $scope) {
   // scope variable holding the forms data
   this.formData = {};
 
+  var self = this;
 
 
   //==================================
@@ -48,36 +49,46 @@ function($http, $scope) {
   //==================================
 
   // function getNotes() {
-  this.getNotes = function() {
+  self.getNotes = function() {
     $http({
       method: 'GET',
       url: $scope.url + 'notes',
-    }).then(function(response) {
-      console.log('all notes', response.data);
+    }).then(function(response) {;
       this.notesArray = response.data
-      // console.log('notes array: ', this.notesArray);
+      // console.log('This is an array of all the notes: ', this.notesArray);
+
       // SHOWS ONLY THE NOTES WITH VALUE OF ARCHIVED FALSE
-      this.filteredArray = this.notesArray.filter(function(note) {
+      this.arrayArchivedNotes = this.notesArray.filter(function(note) {
         return note.archived === false;
       });
+      // SHOWS NOTES FILTERD BY CURRENTUSER ID
+      this.filteredArrayByID = this.arrayArchivedNotes.filter(function(note) {
+        return note.user_id === $scope.currentUser.id;
+      });
 
-      // this.filteredArrayByID = this.notesArray.filter(function(note) {
-      //   return note.id === $scope.currentUserID;
-      // });
+      console.log('filteredArrayByID: ', this.filteredArrayByID);
+
+      if ($scope.loggedInUser === true) {
+        this.displayedNotes = this.filteredArrayByID
+        console.log('filteredArrayByID worked');
+      } else {
+        console.log('filteredArrayByID did not work');
+      }
       // console.log('filteredArrayByID', this.filteredArrayByID);
       //
-      this.displayedNotes = this.filteredArray;
+      // this.displayedNotes = this.notesArray;
+      // console.log('this is displayed notes: ', this.displayedNotes);
       // SHOWS ALL NOTES
       // this.allNotes = response.data;
     }.bind(this));
   };
-  this.getNotes();
+  self.getNotes();
   // this.getNotes = getNotes;
   // getNotes();
-  //
-  // $scope.$on('newLogin', function() {
-  //   getNotes()
-  // })
+
+  $scope.$on('newLogin', function() {
+    self.getNotes()
+  })
 
   //==================================
   //        Show Individual Notes
@@ -137,7 +148,7 @@ function($http, $scope) {
     }).then(function(response) {
       console.log('New note: ', response);
       this.formData = {};
-      this.getNotes();
+      self.getNotes();
     }.bind(this));
   };
 
@@ -175,7 +186,7 @@ function($http, $scope) {
      }
     }).then(function(response){
      console.log("Deleted: ", response);
-     this.getNotes();
+     self.getNotes();
     }.bind(this));
   };
 
@@ -204,7 +215,7 @@ function($http, $scope) {
     }).then(function(response) {
       // console.log('Edited note: ', note);
       console.log('starred status: ', note.starred);
-      this.getNotes();
+      self.getNotes();
     }.bind(this));
   }
 
@@ -233,7 +244,7 @@ function($http, $scope) {
     }).then(function(response) {
       console.log('Edited note: ', note);
       console.log('archived status: ', note.archived);
-      this.getNotes();
+      self.getNotes();
     }.bind(this));
   }
 

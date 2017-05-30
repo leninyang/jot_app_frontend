@@ -74,7 +74,6 @@ function($http, $scope) {
       console.log('response', response);
       $scope.currentUser = response.data.user;
       $scope.$emit('userLogin')
-      // console.log("The current user is: ", $scope.currentUser);
       // Empties the form
       loginData.username = '';
       loginData.password = '';
