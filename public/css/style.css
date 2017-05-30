@@ -66,3 +66,11 @@
 .notes {
   min-height: 170px;
 }
+
+body {
+  background-image: url(/images/background-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #eceff1;
+  height: 100vh;
+}

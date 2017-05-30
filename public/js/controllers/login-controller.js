@@ -16,6 +16,10 @@ function($http, $scope) {
   var $closeLoginBtn = $('#closeLogin');
   var $closeSignUpBtn = $('#closeSignUp');
 
+  // GRAB BODY ELEMENT
+  var $body = $('body');
+
+
   // -------------------
   //   EVENT HANDLERS
   // -------------------
@@ -74,6 +78,9 @@ function($http, $scope) {
       // Empties the form
       loginData.username = '';
       loginData.password = '';
+      // REMOVE BACKGROUND IMAGE WHEN YOU LOGIN
+      $body.css('background-image', 'none')
+      $loginModal.css('display', 'none');
       // localStorage.setItem('token', JSON.stringify(response.data.token));
       // if (response.data.status === 200) {
         // saves webtoken to local storage
@@ -115,6 +122,7 @@ function($http, $scope) {
       // Empties the form
       signUpData.username = '';
       signUpData.password = '';
+      $signUpModal.css('display', 'none');
     }.bind(this));
   };
 

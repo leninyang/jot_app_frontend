@@ -74,7 +74,7 @@ function($http, $scope) {
   this.getNotes();
   // this.getNotes = getNotes;
   // getNotes();
-
+  //
   // $scope.$on('newLogin', function() {
   //   getNotes()
   // })

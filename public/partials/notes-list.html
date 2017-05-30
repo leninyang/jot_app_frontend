@@ -1,4 +1,4 @@
-<!-- SEARCH BAR | ADD | ARCHIVED | STARRED -->
+<!-- SEARCH BAR -->
 <div class="second-nav">
   <form>
     <div class="input-field">
@@ -7,9 +7,11 @@
       <i class="material-icons">close</i>
     </div>
   </form>
-
-  <button class="btn" id="openCreateModal" ng-click="notesCtrl.createNote()">Add Note</button>
+  <!-- NEW NOTES BUTTON -->
+  <button class="btn" id="openCreateModal" ng-click="notesCtrl.createNote()">New Note</button>
+  <!-- ARCHIVED BUTTON -->
   <button class="btn" ng-click="notesCtrl.showArchivedNotes()">Archived</button>
+  <!-- STARRED BUTTON -->
   <button class="btn" ng-click="notesCtrl.showStarredNotes()">Starred</button>
 </div>
 
@@ -23,15 +25,13 @@
       <div class="card-action icon-buttons">
         <span class="activator"><i class="material-icons icon">mode_edit</i></span>
         <!-- NOTES DELETE BUTTON -->
-        <!-- <button class="btn"ng-click="notesCtrl.deleteNote(note)" type="button">Delete</button> -->
         <i ng-click="notesCtrl.deleteNote(note)" class="material-icons icon">delete</i>
         <!-- NOTES STARRED BUTTON -->
-        <!-- <button ng-click="notesCtrl.starNote(note)" type="button">Star</button> -->
         <i ng-click="notesCtrl.starNote(note)" class="material-icons icon">stars</i>
         <!-- NOTES ARCHIVED BUTTON -->
-        <!-- <button ng-click="notesCtrl.archiveNote(note)" type="button">Archive</button> -->
         <i ng-click="notesCtrl.archiveNote(note)" class="material-icons icon">done</i>
       </div>
+      <!-- MATERIALIZE CARD REVEAL  -->
       <div class="card-reveal grey lighten-4">
         <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
         <!-- NOTES EDIT FORM -->

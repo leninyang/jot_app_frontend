@@ -16,6 +16,7 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
 
   // currentUser
   $scope.loggedInUser = false;
+  $scope.loggedInUserNav = true;
 
   // $scope.$on('userLogin', function() {
   //   $scope.$broadcast('newLogin')
@@ -34,10 +35,13 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
       $scope.userData.username = JSON.parse(localStorage.getItem('username'));
       $scope.userData.id = JSON.parse(localStorage.getItem('user_id'));
       $scope.loggedInUser = true;
+      $scope.loggedInUserNav = false;
+      
     } else {
       $scope.userData = {};
       console.log('The user is NOT logged in.');
       $scope.loggedInUser = false;
+      $scope.loggedInUserNav = true;
     }
   };
 
