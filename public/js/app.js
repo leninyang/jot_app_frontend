@@ -4,30 +4,27 @@ var app = angular.module('jot-app', []);
 
 app.controller('mainController', ['$http', '$scope', function($http, $scope) {
   this.message = "JoT";
-  // This is the url for our backend, inject scope to your controllers and you should be able to use this variable anywhere
+
+  // TOGGLE USED FOR LOCALHOST AND HEROKU
   // $scope.url = 'http://localhost:3000/';
   $scope.url = 'https://jot-note-api.herokuapp.com/';
-//
+
   // scope variable holding userData, available to all controllers
   $scope.userData = {};
 
-  //Used to hold the logged in user.
+  //scope variable holding currently logged in user's data
   $scope.currentUser = {};
 
-  // currentUser
+  // scope variables used in userIsLoggedIn()
   $scope.loggedInUser = false;
   $scope.loggedInUserNav = true;
 
+  // Broadcasts an event downward to child controller (Notes Controller)
   $scope.$on('userLogin', function() {
     $scope.$broadcast('newLogin')
   });
 
-
-
-
-
-  // this is a function that checks if a user is logged in, inject scope to your
-  // controllers and you should be able to use this variable anywhere
+  // Function that checks if a user is logged in. We injejected $scope so we should be able to use this variable anywhere.
   $scope.userIsLoggedIn = function() {
     var jwt = localStorage.getItem('token');
     if(jwt !== 'undefined' && jwt !== undefined && jwt !== null) {

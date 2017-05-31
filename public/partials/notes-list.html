@@ -7,13 +7,19 @@
       <i class="material-icons">close</i>
     </div>
   </form>
+
   <!-- NEW NOTES BUTTON -->
-  <button class="btn" id="openCreateModal" ng-click="notesCtrl.createNote()">New Note</button>
+  <!-- ng-click="notesCtrl.createNote()" -->
+  <button class="btn" id="openCreateModal">New Note</button>
   <!-- ARCHIVED BUTTON -->
   <button class="btn" ng-click="notesCtrl.showArchivedNotes()">Archived</button>
   <!-- STARRED BUTTON -->
   <button class="btn" ng-click="notesCtrl.showStarredNotes()">Starred</button>
+  <!-- SHOW ALL BUTTON -->
+  <button class="btn" ng-click="notesCtrl.showAllNotes()">Show All</button>
 </div>
+
+
 
 <div class="row">
   <div ng-repeat="note in notesCtrl.displayedNotes | filter:searchBox" class="col s12 m3">

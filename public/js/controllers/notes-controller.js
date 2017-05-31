@@ -4,30 +4,30 @@ function($http, $scope) {
   // -------------------
   //  GRABING ELEMENTS
   // -------------------
- var $openCreateBtn = $('#openCreateModal');
- // Grabbing login modal element
- var $createModal = $('#createModal');
- // Grabbing close button
- var $closeCreateBtn = $('#closeCreate');
+  var $openCreateBtn = $('#openCreateModal');
+  // Grabbing login modal element
+  var $createModal = $('#createModal');
+  // Grabbing close button
+  var $closeCreateBtn = $('#closeCreate');
 
 
- // -------------------
- //   EVENT HANDLERS
- // -------------------
- // Event handler to open the modal
- var openCreateModal = function(){
-   $createModal.css('display', 'block');
- }
- var closeCreateModal = function(){
-   $createModal.css('display', 'none');
- }
- // -------------------
- //   EVENT LISTENERS
- // -------------------
- //Add event listener to Login Button
- $openCreateBtn.on('click', openCreateModal);
- //Add event listener to Close button
- $closeCreateBtn.on('click', closeCreateModal);
+  // -------------------
+  //   EVENT HANDLERS
+  // -------------------
+  // Event handler to open the modal
+  var openCreateModal = function(){
+    $createModal.css('display', 'block');
+  }
+  var closeCreateModal = function(){
+    $createModal.css('display', 'none');
+  }
+  // -------------------
+  //   EVENT LISTENERS
+  // -------------------
+  //Add event listener to Login Button
+  $openCreateBtn.on('click', openCreateModal);
+  //Add event listener to Close button
+  $closeCreateBtn.on('click', closeCreateModal);
 
 
   // scope variable holding notes
@@ -45,7 +45,7 @@ function($http, $scope) {
 
 
   //==================================
-  //        Notes Index Route
+  //        Show All Notes
   //==================================
 
   // function getNotes() {
@@ -74,50 +74,55 @@ function($http, $scope) {
       } else {
         console.log('filteredArrayByID did not work');
       }
-      // console.log('filteredArrayByID', this.filteredArrayByID);
-      //
-      // this.displayedNotes = this.notesArray;
-      // console.log('this is displayed notes: ', this.displayedNotes);
-      // SHOWS ALL NOTES
-      // this.allNotes = response.data;
     }.bind(this));
   };
   self.getNotes();
-  // this.getNotes = getNotes;
-  // getNotes();
 
+
+  // =====================
+  //       LISTENER | $emit, $broadcast and $on
+  // =====================
+
+  // Listens for event from parent controller (Main Controller)
   $scope.$on('newLogin', function() {
     self.getNotes()
-  })
-
-  //==================================
-  //        Show Individual Notes
-  //==================================
-
-    this.showOneNote = function(noteID) {
-      $http({
-        method: 'GET',
-        url: $scope.url + 'notes/' + noteID,
-      }).then(function(response){
-        console.log('individual note', response.data);
-        this.singleNote = response.data;
-      }.bind(this));
-    };
-
+  });
 
 
   //==================================
-  //        Notes Show Archived
+  //        Shows Individual Notes
+  //==================================
+
+  // this.showOneNote = function(noteID) {
+  //   $http({
+  //     method: 'GET',
+  //     url: $scope.url + 'notes/' + noteID,
+  //   }).then(function(response){
+  //     console.log('individual note', response.data);
+  //     this.singleNote = response.data;
+  //   }.bind(this));
+  // };
+
+
+  //==================================
+  //        Show All Notes
+  //==================================
+  this.showAllNotes = function() {
+    self.getNotes();
+  };
+
+  //==================================
+  //        Show Archived Notes
   //==================================
   this.showArchivedNotes = function() {
     console.log(this.notesArray);
     this.displayedNotes = this.notesArray.filter(function(note) {
       return note.archived === true;
     });
-  }
+  };
 
   //==================================
-  //        Notes Show Starred
+  //        Show Starred Notes
   //==================================
   this.showStarredNotes = function() {
     console.log(this.notesArray);
@@ -127,7 +132,7 @@ function($http, $scope) {
   }
 
   //==================================
-  //        Notes Create
+  //       Create Note
   //==================================
   this.createNote = function() {
     $http({
@@ -152,6 +157,7 @@ function($http, $scope) {
     }.bind(this));
   };
 
+
   //==================================
   //        Notes Update
   //==================================
@@ -170,7 +176,6 @@ function($http, $scope) {
       }
     }).then(function(response) {
       console.log('Edited note: ', note);
-
     }.bind(this));
   };
 
@@ -179,14 +184,14 @@ function($http, $scope) {
   //==================================
   this.deleteNote = function(note){
     $http({
-     method: 'DELETE',
-     url: $scope.url + 'notes/' + note.id,
-     headers: {
-         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-     }
+      method: 'DELETE',
+      url: $scope.url + 'notes/' + note.id,
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
     }).then(function(response){
-     console.log("Deleted: ", response);
-     self.getNotes();
+      console.log("Deleted: ", response);
+      self.getNotes();
     }.bind(this));
   };
 
@@ -194,7 +199,6 @@ function($http, $scope) {
   //        Starred
   //==================================
   this.starNote = function(note) {
-    // console.log('what is being passed', note);
     if (note.starred === false) {
       note.starred = true
     } else if (note.starred === true) {
@@ -217,13 +221,12 @@ function($http, $scope) {
       console.log('starred status: ', note.starred);
       self.getNotes();
     }.bind(this));
-  }
+  };
 
   //==================================
   //        Archived
   //==================================
   this.archiveNote = function(note) {
-    // console.log('what is being passed', note);
     // When clicked, checks for value and assigns the opposite
     if (note.archived === false) {
       note.archived = true
@@ -246,7 +249,7 @@ function($http, $scope) {
       console.log('archived status: ', note.archived);
       self.getNotes();
     }.bind(this));
-  }
+  };
 
 
 

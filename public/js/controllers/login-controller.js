@@ -54,6 +54,8 @@ function($http, $scope) {
 
 
   this.message = "JoT";
+  this.msg = '';
+  
   // $scope.currentUser = {};
 
   // =================================
@@ -73,23 +75,29 @@ function($http, $scope) {
     }).then(function(response){
       console.log('response', response);
       $scope.currentUser = response.data.user;
+
+      // Emit's an event upward to the parent controller (Main Controller)
       $scope.$emit('userLogin')
-      // Empties the form
+
+      // Empties the login forms
       loginData.username = '';
       loginData.password = '';
-      // REMOVE BACKGROUND IMAGE WHEN YOU LOGIN
+
+      // REMOVES BACKGROUND IMAGE WHEN YOU LOGIN
       $body.css('background-image', 'none')
+      // REMOVES LOGIN MODAL AFTER USER LOGINS
       $loginModal.css('display', 'none');
-      // localStorage.setItem('token', JSON.stringify(response.data.token));
-      // if (response.data.status === 200) {
-        // saves webtoken to local storage
+
+      localStorage.setItem('token', JSON.stringify(response.data.token));
+      if (response.data.status === 200) {
+        // Saves webtoken to local storage
         localStorage.setItem('token', JSON.stringify(response.data.token))
         localStorage.setItem('username', JSON.stringify(response.data.user.username));
         localStorage.setItem('user_id', JSON.stringify(response.data.user.id));
         $scope.userIsLoggedIn();
-      // } else {
-      //   this.msg = 'Sorry, the username and password you provided don\'t match our records.';
-      // }
+      } else {
+        this.msg = "Sorry, the username and password you provided don't match our records.";
+      }
     }.bind(this));
   };
 
@@ -101,7 +109,7 @@ function($http, $scope) {
     localStorage.clear('token');
     location.reload();
   },
-  console.log('logout');
+  console.log("You've logged out");
 
   // =================================
   //            SIGNUP
@@ -118,7 +126,7 @@ function($http, $scope) {
       }
     }).then(function(response){
       console.log('Sign up!', response);
-      // Empties the form
+      // Empties the SIGN UP form
       signUpData.username = '';
       signUpData.password = '';
       $signUpModal.css('display', 'none');
