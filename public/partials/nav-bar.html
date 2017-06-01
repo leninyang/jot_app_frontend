@@ -1,22 +1,27 @@
 <!-- NAV BAR -->
 <nav ng-show="loggedInUserNav" class="N/A transparent">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">JoT</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#" id="openSignUpModal">Create Account</a></li>
-      <li><a href="#" id="openLoginModal">Sign In</a></li>
-      <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()">Log Out</a></li>
+    <ul id="nav-mobile" class="right hide-on-med-and-down ">
+      <li><a href="#" id="openSignUpModal" class="create-sign-in teal-text text-accent-3">Create Account</a></li>
+      <li><a href="#" id="openLoginModal" class="create-sign-in teal-text text-accent-3">Sign In</a></li>
+      <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()" class="teal-text text-accent-3">Log Out</a></li>
     </ul>
+    <div class="center-align teal-text text-accent-3">
+      <h1 class="jot">JoT</h1>
+      <h4 class="capture">Capture your thoughts</h4>
+    </div>
   </div>
 </nav>
 <!-- NAV BAR -->
-<nav ng-show="loggedInUser" class="blue-grey darken-4">
+<nav ng-show="loggedInUser" class="blue-grey darken-1">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">JoT</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#" id="openSignUpModal">Create Account</a></li>
-      <li><a href="#" id="openLoginModal">Sign In</a></li>
-      <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()">Log Out</a></li>
+    <a href="#" class="brand-logo teal-text text-accent-3 logged-in-jot">Notes</a>
+    <img class="pen-icon"src="images/pen-icon.png" alt="">
+    <!-- <span class="logged-in-capture teal-text text-accent-3">Capture your thoughts</span> -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down ">
+      <!-- <li><a href="#" id="openSignUpModal" class="">Create Account</a></li> -->
+      <li><a href="#" id="openLoginModal" class="teal-text text-accent-3 nav-bar-font nav-bar">Sign In</a></li>
+      <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()" class="teal-text text-accent-3 nav-bar-font nav-bar">Log Out</a></li>
     </ul>
   </div>
 </nav>

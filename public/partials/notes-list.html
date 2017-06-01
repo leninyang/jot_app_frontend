@@ -20,13 +20,13 @@
 </div>
 
 
-
-<div class="row">
+<!-- SHOW ALL NOTES -->
+<div class="row notes-container">
   <div ng-repeat="note in notesCtrl.displayedNotes | filter:searchBox" class="col s12 m3">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text activator notes">
         <span class="card-title">{{note.title}}</span>
-        <p>{{note.content}}</p>
+        <p class="angular-with-newlines">{{note.content}}</p>
       </div>
       <div class="card-action icon-buttons">
         <span class="activator"><i class="material-icons icon">mode_edit</i></span>

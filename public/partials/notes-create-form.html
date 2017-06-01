@@ -1,12 +1,12 @@
 <!-- CREATE FORM -->
   <div id="createModal">
-    <div id="modalTextBox" class="container center-align">
-      <h4>New Note</h4>
+    <div id="newNoteModalTextBox" class="container center-align">
+      <h4 class="modal-header grey-text">Jot a note...</h4>
       <form ng-submit="notesCtrl.createNote()">
-        <div class="input-field">
+        <!-- TITLE -->
         <input type="text" ng-model="notesCtrl.formData.title" placeholder="Title"/>
-        </div>
-        <input type="text" ng-model="notesCtrl.formData.content" placeholder="Content"/>
+        <textarea ng-model="notesCtrl.formData.content" placeholder="Content" ></textarea>
+        <!-- <input type="text" ng-model="notesCtrl.formData.content" placeholder="Content"/> -->
         <input type="submit" value="Add"/>
       </form>
       <p>Logged in username: {{ currentUser.username }} </p>
