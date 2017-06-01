@@ -55,7 +55,7 @@ function($http, $scope) {
 
   this.message = "JoT";
   this.msg = '';
-  
+
   // $scope.currentUser = {};
 
   // =================================
@@ -83,13 +83,14 @@ function($http, $scope) {
       loginData.username = '';
       loginData.password = '';
 
-      // REMOVES BACKGROUND IMAGE WHEN YOU LOGIN
-      $body.css('background-image', 'none')
-      // REMOVES LOGIN MODAL AFTER USER LOGINS
-      $loginModal.css('display', 'none');
+
 
       localStorage.setItem('token', JSON.stringify(response.data.token));
       if (response.data.status === 200) {
+        // REMOVES BACKGROUND IMAGE WHEN YOU LOGIN
+        $body.css('background-image', 'none')
+        // REMOVES LOGIN MODAL AFTER USER LOGINS
+        $loginModal.css('display', 'none');
         // Saves webtoken to local storage
         localStorage.setItem('token', JSON.stringify(response.data.token))
         localStorage.setItem('username', JSON.stringify(response.data.user.username));

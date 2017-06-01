@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body ng-controller="mainController as ctrl">
-    <!-- NAV BAR -->
+  <!-- NAV BAR -->
   <nav-bar></nav-bar>
   <!-- LOGIN FORM -->
   <login-form></login-form>
@@ -38,9 +38,10 @@
   <sign-up-form></sign-up-form>
   <!-- SHOW ALL NOTES -->
   <notes-list ng-show="loggedInUser"></notes-list>
-
   <!-- CREATE FORM -->
   <notes-create-form ng-show="loggedInUser"></notes-create-form>
-
+  <footer>
+  JoT App © 2017 by Lenin Yang
+  </footer>
 </body>
 </html>

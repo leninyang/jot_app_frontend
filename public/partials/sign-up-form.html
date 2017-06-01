@@ -1,12 +1,13 @@
 <!-- SIGN UP FORM -->
 <div id="signUpModal">
   <div id="modalTextBox" class="container center-align">
+    <i class="small material-icons right icon" id="closeSignUp">close</i>
     <h4 class="modal-header grey-text">Sign Up</h4>
     <form ng-submit="loginCtrl.signUp(signUpData)">
       <input type="text" ng-model="signUpData.username" placeholder="username"/>
       <input type="password" ng-model="signUpData.password" placeholder="password"/>
-      <input type="submit"/>
+      <input class="btn"type="submit" value="Create"/>
     </form>
-    <a id="closeSignUp">close</a>
+    <!-- <a id="closeSignUp">close</a> -->
   </div>
 </div>

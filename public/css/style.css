@@ -67,7 +67,7 @@
 
 
 .second-nav {
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   /*display: flex;*/
 }
@@ -150,4 +150,16 @@ body {
 .notes-container {
   padding-top: 5%;
   width: 87%;
+}
+
+
+footer {
+  background-color: #f8f8f8 !important;
+  font-size: 1em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }

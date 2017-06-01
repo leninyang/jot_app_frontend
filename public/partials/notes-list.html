@@ -10,13 +10,15 @@
 
   <!-- NEW NOTES BUTTON -->
   <!-- ng-click="notesCtrl.createNote()" -->
-  <button class="btn" id="openCreateModal">New Note</button>
-  <!-- ARCHIVED BUTTON -->
-  <button class="btn" ng-click="notesCtrl.showArchivedNotes()">Archived</button>
-  <!-- STARRED BUTTON -->
-  <button class="btn" ng-click="notesCtrl.showStarredNotes()">Starred</button>
-  <!-- SHOW ALL BUTTON -->
-  <button class="btn" ng-click="notesCtrl.showAllNotes()">Show All</button>
+  <div class="row">
+    <button class="btn col s3 button" id="openCreateModal">New Note</button>
+    <!-- ARCHIVED BUTTON -->
+    <button class="btn col s3 button" ng-click="notesCtrl.showArchivedNotes()">Archived</button>
+    <!-- STARRED BUTTON -->
+    <button class="btn col s3 button" ng-click="notesCtrl.showStarredNotes()">Starred</button>
+    <!-- SHOW ALL BUTTON -->
+    <button class="btn col s3 button" ng-click="notesCtrl.showAllNotes()">Show All</button>
+  </div>
 </div>
 
 

@@ -1,14 +1,14 @@
 <!-- NAV BAR -->
 <nav ng-show="loggedInUserNav" class="N/A transparent">
   <div class="nav-wrapper">
-    <ul id="nav-mobile" class="right hide-on-med-and-down ">
-      <li><a href="#" id="openSignUpModal" class="create-sign-in teal-text text-accent-3">Create Account</a></li>
-      <li><a href="#" id="openLoginModal" class="create-sign-in teal-text text-accent-3">Sign In</a></li>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#" id="openSignUpModal" class="create-sign-in teal-text text-accent-3">CREATE ACCOUNT</a></li>
+      <li><a href="#" id="openLoginModal" class="create-sign-in teal-text text-accent-3">SIGN IN</a></li>
       <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()" class="teal-text text-accent-3">Log Out</a></li>
     </ul>
     <div class="center-align teal-text text-accent-3">
-      <h1 class="jot">JoT</h1>
-      <h4 class="capture">Capture your thoughts</h4>
+      <h1 class="jot">JOT</h1>
+      <h4 class="capture">CAPTURE YOUR THOUGHTS</h4>
     </div>
   </div>
 </nav>
@@ -19,9 +19,10 @@
     <img class="pen-icon"src="images/pen-icon.png" alt="">
     <!-- <span class="logged-in-capture teal-text text-accent-3">Capture your thoughts</span> -->
     <ul id="nav-mobile" class="right hide-on-med-and-down ">
-      <!-- <li><a href="#" id="openSignUpModal" class="">Create Account</a></li> -->
-      <li><a href="#" id="openLoginModal" class="teal-text text-accent-3 nav-bar-font nav-bar">Sign In</a></li>
-      <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()" class="teal-text text-accent-3 nav-bar-font nav-bar">Log Out</a></li>
+        <!-- WELCOME -->
+      <li class="teal-text text-accent-3 nav-bar-font nav-bar">WELCOME {{currentUser.username | uppercase}}</li>
+      <!-- LOGOUT -->
+      <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()" class="teal-text text-accent-3 nav-bar-font nav-bar">LOG OUT</a></li>
     </ul>
   </div>
 </nav>
