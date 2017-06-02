@@ -1,10 +1,10 @@
 # Jot
-!<a href="https://jot-note-app.herokuapp.com/"><img src="public/images/readme/intro.png"></a>
+<a href="https://jot-note-app.herokuapp.com/"><img src="public/images/readme/intro.png"></a>
 _**/jät/ verb:** to jot means to write (something) quickly. JoT is a simple note taking application that helps capture what's on your mind._
 
 
 ## Technologies used:
-![https://jot-note-app.herokuapp.com/](public/images/readme/main.png)
+<a href="https://jot-note-app.herokuapp.com/"><img src="public/images/readme/main.png"></a>
 
 **FRONTEND:** AngularJS, Node.js, Express.js, HTML, CSS
 
