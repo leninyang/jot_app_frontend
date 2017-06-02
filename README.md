@@ -7,19 +7,14 @@ _**/jät/ verb:** to jot means to write (something) quickly. JoT is a simple not
 ![https://jot-note-app.herokuapp.com/](public/images/readme/main.png)
 
 **FRONTEND:**
-```
 - AngularJS, Node.js, Express.js, HTML, CSS
-```
 
 **CSS FRAMEWORK**
-```
 - [Materialize](http://materializecss.com/)
-```
 
 **AUTHENTIFICATION**
-```
 - Javascript Web Tokens
-```
+
 
 ## User Stories
 **User should be able to:**
