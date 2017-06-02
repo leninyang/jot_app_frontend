@@ -1,5 +1,6 @@
-# JoT - Note Taking App
-Use JoT to quickly take and save notes.
+# JoT
+![](public/images/readme/img.png)
+/jät/ *verb:* to jot means to write (something) quickly. JoT is a simple note taking application that helps capture what's on your mind.
 
 
 ## Technologies
