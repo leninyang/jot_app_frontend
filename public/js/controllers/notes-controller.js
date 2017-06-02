@@ -117,7 +117,7 @@ function($http, $scope) {
     console.log(this.notesArray);
     this.displayedNotes =
      this.notesArray.filter(function(note) {
-      return note.archived === true && note.user_id === $scope.currentUser.id;
+      return note.archived === true && note.user_id === $scope.userData.id;
 
     });
   };
@@ -128,7 +128,7 @@ function($http, $scope) {
   this.showStarredNotes = function() {
     console.log(this.notesArray);
     this.displayedNotes = this.notesArray.filter(function(note) {
-      return note.starred === true && note.user_id === $scope.currentUser.id;
+      return note.starred === true && note.user_id === $scope.userData.id;
     });
   }
 
@@ -148,7 +148,7 @@ function($http, $scope) {
           content: this.formData.content,
           starred: this.formData.starred = false,
           archived: this.formData.archived = false,
-          user_id: $scope.currentUser.id
+          user_id: $scope.userData.id
         }
       }
     }).then(function(response) {

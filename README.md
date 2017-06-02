@@ -7,7 +7,7 @@ Use JoT to quickly take and save notes.
 - Rails backend
 - Postgresql DB
 - Authentication with Javascript Web Tokens
-- AngularJS | Node | Express Front-end
+- AngularJS | Node.js | Express.js Front-End
 ```
 
 ## ERD
