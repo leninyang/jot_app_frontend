@@ -73,8 +73,8 @@ function($http, $scope) {
     }).then(function(response){
       console.log('response', response);
       $scope.currentUser = response.data.user;
-      $scope.loggedInUser = true;
-      $scope.loggedInUserNav = false;
+      // $scope.loggedInUser = true;
+      // $scope.loggedInUserNav = false;
       // Emit's an event upward to the parent controller (Main Controller)
       $scope.$emit('userLogin')
 

@@ -21,7 +21,7 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
 
   // scope variables used in userIsLoggedIn()
   $scope.loggedInUser = false;
-  $scope.loggedInUserNav = true;
+  // $scope.loggedInUserNav = true;
 
   // Broadcasts an event downward to child controller (Notes Controller)
   $scope.$on('userLogin', function() {
@@ -36,14 +36,16 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
       $scope.userData.username = JSON.parse(localStorage.getItem('username'));
       $scope.userData.id = JSON.parse(localStorage.getItem('user_id'));
 
+      // WHEN USER IS LOGGED IN, SHOW ALL NOTES
       $scope.loggedInUser = true;
-      $scope.loggedInUserNav = false;
+      // $scope.loggedInUserNav = false;
+      // REMOVES BACKGROUND IMAGE WHEN YOU LOGIN
       $body.css('background-image', 'none');
     } else {
       $scope.userData = {};
       console.log('The user is NOT logged in.');
       $scope.loggedInUser = false;
-      $scope.loggedInUserNav = true;
+      // $scope.loggedInUserNav = true;
     }
   };
 

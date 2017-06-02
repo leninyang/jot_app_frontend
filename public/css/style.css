@@ -176,3 +176,11 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+/*.three-buttons {
+  margin-left: 9em;
+}*/
+
+.new-button {
+  margin-top: 1em;
+}

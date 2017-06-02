@@ -11,11 +11,13 @@ Use JoT to quickly take and save notes.
 ```
 
 ## ERD
+```
 User
 - Has many notes
 
 Note
 - Belongs to user
+```
 
 ## SCHEMA
 ```
