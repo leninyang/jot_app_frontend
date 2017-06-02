@@ -159,10 +159,20 @@ body {
 footer {
   background-color: #f8f8f8 !important;
   font-size: 1em;
-  position: absolute;
+  /*position: absolute;
   right: 0;
   bottom: 0;
-  left: 0;
-  padding: 1rem;
+  left: 0;*/
+  /*padding: 1rem;*/
   text-align: center;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }

@@ -56,8 +56,6 @@ function($http, $scope) {
   this.message = "JoT";
   this.msg = '';
 
-  // $scope.currentUser = {};
-
   // =================================
   //            LOGIN
   // =================================
@@ -75,15 +73,14 @@ function($http, $scope) {
     }).then(function(response){
       console.log('response', response);
       $scope.currentUser = response.data.user;
-
+      $scope.loggedInUser = true;
+      $scope.loggedInUserNav = false;
       // Emit's an event upward to the parent controller (Main Controller)
       $scope.$emit('userLogin')
 
       // Empties the login forms
       loginData.username = '';
       loginData.password = '';
-
-
 
       localStorage.setItem('token', JSON.stringify(response.data.token));
       if (response.data.status === 200) {
@@ -95,6 +92,7 @@ function($http, $scope) {
         localStorage.setItem('token', JSON.stringify(response.data.token))
         localStorage.setItem('username', JSON.stringify(response.data.user.username));
         localStorage.setItem('user_id', JSON.stringify(response.data.user.id));
+
         $scope.userIsLoggedIn();
       } else {
         this.msg = "Sorry, the username and password you provided don't match our records.";
@@ -102,15 +100,15 @@ function($http, $scope) {
     }.bind(this));
   };
 
-
   // =================================
   //            LOGOUT
   // =================================
   this.logout = function() {
     localStorage.clear('token');
     location.reload();
+    console.log("You've logged out");
   },
-  console.log("You've logged out");
+
 
   // =================================
   //            SIGNUP

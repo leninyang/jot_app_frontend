@@ -63,7 +63,7 @@ function($http, $scope) {
 
       // SHOWS NOTES FILTERD BY CURRENTUSER ID
       this.filteredArrayByID = this.arrayArchivedNotes.filter(function(note) {
-        return note.user_id === $scope.currentUser.id;
+        return note.user_id === $scope.userData.id;
       });
 
       // IF USER IS LOGGED IN, SHOW NOTES FILTERED BY CURRENUSER.ID

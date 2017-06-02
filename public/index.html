@@ -30,18 +30,22 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body ng-controller="mainController as ctrl">
-  <!-- NAV BAR -->
-  <nav-bar></nav-bar>
-  <!-- LOGIN FORM -->
-  <login-form></login-form>
-  <!-- SIGN UP FORM -->
-  <sign-up-form></sign-up-form>
-  <!-- SHOW ALL NOTES -->
-  <notes-list ng-show="loggedInUser"></notes-list>
-  <!-- CREATE FORM -->
-  <notes-create-form ng-show="loggedInUser"></notes-create-form>
+  <header>
+    <!-- NAV BAR -->
+    <nav-bar></nav-bar>
+  </header>
+  <main>
+    <!-- LOGIN FORM -->
+    <login-form></login-form>
+    <!-- SIGN UP FORM -->
+    <sign-up-form></sign-up-form>
+    <!-- SHOW ALL NOTES -->
+    <notes-list ng-show="loggedInUser"></notes-list>
+    <!-- CREATE FORM -->
+    <notes-create-form ng-show="loggedInUser"></notes-create-form>
+  </main>
   <!-- FOOTER -->
-  <footer>
+  <footer class="center-align">
   JoT App © 2017 by Lenin Yang
   </footer>
 </body>

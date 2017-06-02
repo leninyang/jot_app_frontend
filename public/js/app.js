@@ -6,8 +6,12 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
   this.message = "JoT";
 
   // TOGGLE USED FOR LOCALHOST AND HEROKU
-  // $scope.url = 'http://localhost:3000/';
-  $scope.url = 'https://jot-note-api.herokuapp.com/';
+  $scope.url = 'http://localhost:3000/';
+  // $scope.url = 'https://jot-note-api.herokuapp.com/';
+
+
+  // GRAB BODY ELEMENT
+  var $body = $('body');
 
   // scope variable holding userData, available to all controllers
   $scope.userData = {};
@@ -31,9 +35,10 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
       console.log('The user is logged in.');
       $scope.userData.username = JSON.parse(localStorage.getItem('username'));
       $scope.userData.id = JSON.parse(localStorage.getItem('user_id'));
+
       $scope.loggedInUser = true;
       $scope.loggedInUserNav = false;
-
+      $body.css('background-image', 'none');
     } else {
       $scope.userData = {};
       console.log('The user is NOT logged in.');
