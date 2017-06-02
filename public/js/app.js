@@ -6,8 +6,8 @@ app.controller('mainController', ['$http', '$scope', function($http, $scope) {
   this.message = "JoT";
 
   // TOGGLE USED FOR LOCALHOST AND HEROKU
-  $scope.url = 'http://localhost:3000/';
-  // $scope.url = 'https://jot-note-api.herokuapp.com/';
+  // $scope.url = 'http://localhost:3000/';
+  $scope.url = 'https://jot-note-api.herokuapp.com/';
 
 
   // GRAB BODY ELEMENT
