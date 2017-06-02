@@ -1,15 +1,20 @@
 <!-- LOGIN FORM -->
-  <div id="loginModal">
-    <div id="modalTextBox" class="container center-align">
-      <i class="small material-icons right icon" id="closeLogin">close</i>
-      <h4 class="modal-header grey-text">Sign In</h4>
-      <form ng-submit="loginCtrl.login(loginData)">
-        <div class="input-field">
+<div id="loginModal">
+  <div id="modalTextBox" class="container center-align">
+    <!-- X | CLOSE BUTTON -->
+    <i class="small material-icons right icon" id="closeLogin">close</i>
+    <!-- HEADER -->
+    <h4 class="modal-header grey-text">Sign In</h4>
+    <form ng-submit="loginCtrl.login(loginData)">
+      <div class="input-field">
+        <!-- USERNAME -->
         <input type="text" ng-model="loginData.username" placeholder="username"/>
-        </div>
-        <input type="password" ng-model="loginData.password" placeholder="password"/>
-        <input class="btn"type="submit" value="Login"/>
-      </form>
-      <!-- <a id="closeLogin">close</a> -->
-    </div>
+      </div>
+      <!-- PASSWORD -->
+      <input type="password" ng-model="loginData.password" placeholder="password"/>
+      <!-- LOGIN BUTTON -->
+      <input class="btn"type="submit" value="Login"/>
+    </form>
+    <!-- <a id="closeLogin">close</a> -->
   </div>
+</div>

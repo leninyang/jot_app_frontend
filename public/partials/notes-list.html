@@ -4,6 +4,7 @@
     <div class="input-field">
       <input id="search" type="search" ng-model="searchBox"required>
       <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+      <!-- CLOSE BUTTON -->
       <i class="material-icons">close</i>
     </div>
   </form>
@@ -25,11 +26,15 @@
 <!-- SHOW ALL NOTES -->
 <div class="row notes-container">
   <div ng-repeat="note in notesCtrl.displayedNotes | filter:searchBox" class="col s12 m3">
+    <!-- CARD -->
     <div class="card blue-grey darken-1">
       <div class="card-content white-text activator notes">
+        <!-- NOTES TITLE -->
         <span class="card-title">{{note.title}}</span>
+        <!-- NOTES CONTENT -->
         <p class="angular-with-newlines">{{note.content}}</p>
       </div>
+      <!-- ACTIVATOR TO REVEAL CARD -->
       <div class="card-action icon-buttons">
         <span class="activator"><i class="material-icons icon">mode_edit</i></span>
         <!-- NOTES DELETE BUTTON -->
@@ -43,10 +48,13 @@
       <div class="card-reveal grey lighten-4">
         <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
         <!-- NOTES EDIT FORM -->
-        <form ng-submit="notesCtrl.updateNote(note)">
+        <form id="update-content"ng-submit="notesCtrl.updateNote(note)">
+          <!-- TITLE -->
           <input type="text" ng-model="note.title">
-          <input type="text" ng-model="note.content">
-          <input class="btn right" type="submit" value="update">
+          <!-- CONTENT -->
+          <textarea ng-model="note.content"></textarea>
+          <!-- UPDATE BUTTON -->
+          <input class="card-title btn right" type="submit" value="update">
         </form>
       </div>
     </div>

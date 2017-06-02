@@ -1,25 +1,30 @@
-<!-- NAV BAR -->
+<!-- NAV BAR FOR LANDING PAGE-->
 <nav ng-show="loggedInUserNav" class="N/A transparent">
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!-- CREATE ACCOUNT BUTTON -->
       <li><a href="#" id="openSignUpModal" class="create-sign-in teal-text text-accent-3">CREATE ACCOUNT</a></li>
+      <!-- SIGN IN BUTTON -->
       <li><a href="#" id="openLoginModal" class="create-sign-in teal-text text-accent-3">SIGN IN</a></li>
-      <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()" class="teal-text text-accent-3">Log Out</a></li>
     </ul>
     <div class="center-align teal-text text-accent-3">
+      <!-- PAGE TITLE -->
       <h1 class="jot">JOT</h1>
+      <!-- PAGE SUBTITLE -->
       <h4 class="capture">CAPTURE YOUR THOUGHTS</h4>
     </div>
   </div>
 </nav>
-<!-- NAV BAR -->
+
+
+<!-- NAV BAR AFTER YOU LOGIN -->
 <nav ng-show="loggedInUser" class="blue-grey darken-1">
   <div class="nav-wrapper">
     <a href="#" class="brand-logo teal-text text-accent-3 logged-in-jot">Notes</a>
     <img class="pen-icon"src="images/pen-icon.png" alt="">
     <!-- <span class="logged-in-capture teal-text text-accent-3">Capture your thoughts</span> -->
     <ul id="nav-mobile" class="right hide-on-med-and-down ">
-        <!-- WELCOME -->
+      <!-- WELCOME USER-->
       <li class="teal-text text-accent-3 nav-bar-font nav-bar">WELCOME {{currentUser.username | uppercase}}</li>
       <!-- LOGOUT -->
       <li><a href="#" ng-show="loggedInUser" ng-click="loginCtrl.logout()" class="teal-text text-accent-3 nav-bar-font nav-bar">LOG OUT</a></li>

@@ -1,15 +1,18 @@
 <!-- CREATE FORM -->
   <div id="createModal">
     <div id="newNoteModalTextBox" class="container center-align">
+      <!-- X | CLOSE BUTTON -->
+      <i class="small material-icons right icon closeCreate" >close</i>
+      <!-- HEADER -->
       <h4 class="modal-header grey-text">Jot a note...</h4>
       <form ng-submit="notesCtrl.createNote()">
         <!-- TITLE -->
         <input type="text" ng-model="notesCtrl.formData.title" placeholder="Title"/>
+        <!-- CONTENT -->
         <textarea ng-model="notesCtrl.formData.content" placeholder="Content" ></textarea>
-        <!-- <input type="text" ng-model="notesCtrl.formData.content" placeholder="Content"/> -->
-        <input type="submit" value="Add"/>
+        <!-- CREATE BUTTON -->
+        <!-- <input class="btn" type="submit" value="Create"/> -->
+        <button type="submit" name="Create" class="closeCreate">Create</button>
       </form>
-      <p>Logged in username: {{ currentUser.username }} </p>
-      <a id="closeCreate">close</a>
     </div>
   </div>

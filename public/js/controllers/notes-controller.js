@@ -8,7 +8,7 @@ function($http, $scope) {
   // Grabbing login modal element
   var $createModal = $('#createModal');
   // Grabbing close button
-  var $closeCreateBtn = $('#closeCreate');
+  var $closeCreateBtn = $('.closeCreate');
 
 
   // -------------------
@@ -55,24 +55,23 @@ function($http, $scope) {
       url: $scope.url + 'notes',
     }).then(function(response) {;
       this.notesArray = response.data
-      // console.log('This is an array of all the notes: ', this.notesArray);
 
       // SHOWS ONLY THE NOTES WITH VALUE OF ARCHIVED FALSE
       this.arrayArchivedNotes = this.notesArray.filter(function(note) {
         return note.archived === false;
       });
+
       // SHOWS NOTES FILTERD BY CURRENTUSER ID
       this.filteredArrayByID = this.arrayArchivedNotes.filter(function(note) {
         return note.user_id === $scope.currentUser.id;
       });
 
-      console.log('filteredArrayByID: ', this.filteredArrayByID);
-
+      // IF USER IS LOGGED IN, SHOW NOTES FILTERED BY CURRENUSER.ID
       if ($scope.loggedInUser === true) {
         this.displayedNotes = this.filteredArrayByID
-        console.log('filteredArrayByID worked');
+        console.log('Showing notes of current user.');
       } else {
-        console.log('filteredArrayByID did not work');
+        console.log("Can't show notes, you're not logged in.");
       }
     }.bind(this));
   };
@@ -116,8 +115,10 @@ function($http, $scope) {
   //==================================
   this.showArchivedNotes = function() {
     console.log(this.notesArray);
-    this.displayedNotes = this.notesArray.filter(function(note) {
-      return note.archived === true;
+    this.displayedNotes =
+     this.notesArray.filter(function(note) {
+      return note.archived === true && note.user_id === $scope.currentUser.id;
+
     });
   };
 
@@ -127,7 +128,7 @@ function($http, $scope) {
   this.showStarredNotes = function() {
     console.log(this.notesArray);
     this.displayedNotes = this.notesArray.filter(function(note) {
-      return note.starred === true;
+      return note.starred === true && note.user_id === $scope.currentUser.id;
     });
   }
 
