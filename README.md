@@ -1,6 +1,6 @@
 # Jot
 <a href="https://jot-note-app.herokuapp.com/"><img src="public/images/readme/intro.png"></a>
-![public/images/readme/intro.png](https://jot-note-app.herokuapp.com/)
+<!-- ![public/images/readme/intro.png](https://jot-note-app.herokuapp.com/) -->
 _**/jät/ verb:** to jot means to write (something) quickly. JoT is a simple note taking application that helps capture what's on your mind._
 
 
