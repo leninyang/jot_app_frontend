@@ -1,6 +1,6 @@
 # JoT
 ![](public/images/readme/intro.png)
-/jät/ *verb:* to jot means to write (something) quickly. JoT is a simple note taking application that helps capture what's on your mind.
+_**/jät/ verb:** to jot means to write (something) quickly. JoT is a simple note taking application that helps capture what's on your mind._
 
 
 ## Technologies
