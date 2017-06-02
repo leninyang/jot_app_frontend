@@ -1,39 +1,21 @@
 # JoT
-![](public/images/readme/intro.png)
+![https://jot-note-app.herokuapp.com/](public/images/readme/intro.png)
 _**/jät/ verb:** to jot means to write (something) quickly. JoT is a simple note taking application that helps capture what's on your mind._
 
 
 ## Technologies
+![https://jot-note-app.herokuapp.com/](public/images/readme/main.png)
 ```
-- Rails backend
-- Postgresql DB
-- Authentication with Javascript Web Tokens
-- AngularJS | Node.js | Express.js Front-End
+**FRONTEND:**
+-AngularJS, Node.js, Express.js, HTML, CSS
+
+**CSS FRAMEWORK**
+- [Materialize](http://materializecss.com/)
+
+**AUTHENTIFICATION**
+- Javascript Web Tokens
 ```
 
-## ERD
-```
-User
-- Has many notes
-
-Note
-- Belongs to user
-```
-
-## SCHEMA
-```
-User
-  t.string "username"
-  t.string "password"
-  t.string "name"
-```
-```
-Notes
-  t.string "title"
-  t.text "content"
-  t.boolean "starred"
-  t.boolean "archived"
-```
 ## User Stories
 **User should be able to:**
 
