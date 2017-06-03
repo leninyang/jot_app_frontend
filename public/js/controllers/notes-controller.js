@@ -68,6 +68,7 @@ function($http, $scope) {
       url: $scope.url + 'notes',
     }).then(function(response) {;
       this.notesArray = response.data
+      console.log('notes id: ', response.data);
 
       // SHOWS ONLY THE NOTES WITH VALUE OF ARCHIVED FALSE
       this.arrayArchivedNotes = this.notesArray.filter(function(note) {
