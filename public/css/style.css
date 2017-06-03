@@ -92,7 +92,7 @@ body {
   background-image: url(/images/background-1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  /*background-color: #eceff1;*/
+  background-color: #eaeaea;
   height: 100vh;
 }
 
@@ -157,7 +157,7 @@ body {
 
 
 footer {
-  background-color: #f8f8f8 !important;
+  background-color: SlateGrey !important;
   font-size: 1em;
   /*position: absolute;
   right: 0;

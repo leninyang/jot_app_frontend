@@ -30,6 +30,19 @@ function($http, $scope) {
   $closeCreateBtn.on('click', closeCreateModal);
 
 
+  // $('.starIcon').click(function () {
+  //       if(  $(this).hasClass('black-text') {
+  //               $(this).removeClass('black-text');
+  //               $(this).addClass('yellow-text');
+  //       } else {
+  //                $(this).removeClass('yellow-text');
+  //               $(this).addClass('black-text');
+  //       }
+  // });
+
+
+
+
   // scope variable holding notes
 
   this.notesArray = [];
