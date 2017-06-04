@@ -73,12 +73,11 @@ function($http, $scope) {
     }).then(function(response){
       console.log('response', response);
       $scope.currentUser = response.data.user;
-      // $scope.loggedInUser = true;
-      // $scope.loggedInUserNav = false;
+
       // Emit's an event upward to the parent controller (Main Controller)
       $scope.$emit('userLogin')
 
-      // Empties the login forms
+      // Empties the login form
       loginData.username = '';
       loginData.password = '';
 
@@ -104,6 +103,7 @@ function($http, $scope) {
   //            LOGOUT
   // =================================
   this.logout = function() {
+    // Clears the token
     localStorage.clear('token');
     location.reload();
     console.log("You've logged out");
@@ -128,6 +128,7 @@ function($http, $scope) {
       // Empties the SIGN UP form
       signUpData.username = '';
       signUpData.password = '';
+      // Closes the sign up modal
       $signUpModal.css('display', 'none');
     }.bind(this));
   };

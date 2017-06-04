@@ -33,7 +33,6 @@ function($http, $scope) {
 
 
   // scope variable holding notes
-
   this.notesArray = [];
   this.arrayArchivedNotes = [];
   this.displayedNotes = [];
@@ -117,11 +116,10 @@ function($http, $scope) {
   //        Show Archived Notes
   //==================================
   this.showArchivedNotes = function() {
-    console.log(this.notesArray);
+    // Changes displayed notes values
     this.displayedNotes =
      this.notesArray.filter(function(note) {
       return note.archived === true && note.user_id === $scope.userData.id;
-
     });
   };
 
@@ -129,7 +127,7 @@ function($http, $scope) {
   //        Show Starred Notes
   //==================================
   this.showStarredNotes = function() {
-    console.log(this.notesArray);
+    // Changes displayed notes values
     this.displayedNotes = this.notesArray.filter(function(note) {
       return note.starred === true && note.user_id === $scope.userData.id;
     });
