@@ -38,11 +38,12 @@
       </div>
       <!-- ACTIVATOR TO REVEAL CARD -->
       <div class="card-action icon-buttons">
+        <!-- EDIT BUTTON -->
         <span class="activator"><i class="material-icons icon">mode_edit</i></span>
         <!-- NOTES DELETE BUTTON -->
         <i ng-click="notesCtrl.deleteNote(note)" class="material-icons icon">delete</i>
         <!-- NOTES STARRED BUTTON -->
-        <i ng-click="notesCtrl.starNote(note)" class="material-icons starIcon icon">stars</i>
+        <i ng-click="notesCtrl.starNote(note)" class="material-icons starIcon icon" onclick="Materialize.toast('Starred', 4000)">stars</i>
         <!-- NOTES ARCHIVED BUTTON -->
         <i ng-click="notesCtrl.archiveNote(note)" class="material-icons icon">done</i>
       </div>

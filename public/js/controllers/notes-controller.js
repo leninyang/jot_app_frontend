@@ -1,6 +1,8 @@
 angular.module('jot-app').controller('notesController', ['$http', '$scope',
 function($http, $scope) {
 
+
+
   // -------------------
   //  GRABING ELEMENTS
   // -------------------
@@ -28,19 +30,6 @@ function($http, $scope) {
   $openCreateBtn.on('click', openCreateModal);
   //Add event listener to Close button
   $closeCreateBtn.on('click', closeCreateModal);
-
-
-  // $('.starIcon').click(function () {
-  //       if(  $(this).hasClass('black-text') {
-  //               $(this).removeClass('black-text');
-  //               $(this).addClass('yellow-text');
-  //       } else {
-  //                $(this).removeClass('yellow-text');
-  //               $(this).addClass('black-text');
-  //       }
-  // });
-
-
 
 
   // scope variable holding notes
