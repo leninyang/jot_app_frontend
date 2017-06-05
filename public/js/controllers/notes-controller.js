@@ -116,7 +116,7 @@ function($http, $scope) {
   //        Show Archived Notes
   //==================================
   this.showArchivedNotes = function() {
-    // Changes displayed notes values
+    // Changes the value of displayed notes array
     this.displayedNotes =
      this.notesArray.filter(function(note) {
       return note.archived === true && note.user_id === $scope.userData.id;
@@ -127,7 +127,7 @@ function($http, $scope) {
   //        Show Starred Notes
   //==================================
   this.showStarredNotes = function() {
-    // Changes displayed notes values
+    // Changes the value of displayed notes array
     this.displayedNotes = this.notesArray.filter(function(note) {
       return note.starred === true && note.user_id === $scope.userData.id;
     });
@@ -154,6 +154,7 @@ function($http, $scope) {
       }
     }).then(function(response) {
       console.log('New note: ', response);
+      // Clears the form
       this.formData = {};
       self.getNotes();
     }.bind(this));
@@ -201,6 +202,7 @@ function($http, $scope) {
   //        Starred
   //==================================
   this.starNote = function(note) {
+    // Changes boolean value after you click the button.
     if (note.starred === false) {
       note.starred = true
     } else if (note.starred === true) {
@@ -219,7 +221,6 @@ function($http, $scope) {
         }
       }
     }).then(function(response) {
-      // console.log('Edited note: ', note);
       console.log('starred status: ', note.starred);
       self.getNotes();
     }.bind(this));

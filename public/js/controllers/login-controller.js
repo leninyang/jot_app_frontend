@@ -12,6 +12,7 @@ function($http, $scope) {
   // Grabbing login modal element
   var $loginModal = $('#loginModal');
   var $signUpModal = $('#signUpModal');
+
   // Grabbing close button
   var $closeLoginBtn = $('#closeLogin');
   var $closeSignUpBtn = $('#closeSignUp');
@@ -72,6 +73,7 @@ function($http, $scope) {
       },
     }).then(function(response){
       console.log('response', response);
+      // Holds current users data
       $scope.currentUser = response.data.user;
 
       // Emit's an event upward to the parent controller (Main Controller)
